@@ -1,0 +1,39 @@
+### 1. Upload the document (run this FIRST, every time after saving code)
+POST http://localhost:3000/upload
+Content-Type: application/json
+
+{
+  "text": "Photosynthesis is how plants turn sunlight into food.\n\nA black hole is a region where gravity is so strong that not even light can escape.\n\nBiryani is a spiced rice dish popular across India.\n\nJavaScript is a programming language used to build websites."
+}
+
+### 2. Ask: answer IS in the document
+POST http://localhost:3000/ask
+Content-Type: application/json
+
+{
+  "question": "What happens to light near a black hole?"
+}
+
+### 3. Ask: answer is NOT in the document (grounding test)
+POST http://localhost:3000/ask
+Content-Type: application/json
+
+{
+  "question": "Who won the 2022 FIFA World Cup?"
+}
+
+### 4. Ask: empty question (guard test)
+POST http://localhost:3000/ask
+Content-Type: application/json
+
+{
+  "question": ""
+}
+
+### 5. Ask before uploading (empty store test)
+POST http://localhost:3000/ask
+Content-Type: application/json
+
+{
+  "question": "What is a black hole?"
+}

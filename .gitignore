@@ -1,0 +1,4 @@
+node_modules
+.env
+Rag_buildup/
+drills.js

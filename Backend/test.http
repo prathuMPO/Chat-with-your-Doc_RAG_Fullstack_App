@@ -1,0 +1,47 @@
+### 1. Ask BEFORE uploading (run right after saving/starting the server)
+POST http://localhost:3000/ask
+Content-Type: application/json
+
+{
+  "question": "What is a black hole?"
+}
+
+### 2. Upload with only spaces (guard test)
+POST http://localhost:3000/upload
+Content-Type: application/json
+
+{
+  "text": "   "
+}
+
+### 3. Upload the real document
+POST http://localhost:3000/upload
+Content-Type: application/json
+
+{
+  "text": "Photosynthesis is how plants turn sunlight into food.\n\nA black hole is a region where gravity is so strong that not even light can escape.\n\nBiryani is a spiced rice dish popular across India.\n\nJavaScript is a programming language used to build websites."
+}
+
+### 4. Ask: answer IS in the document
+POST http://localhost:3000/ask
+Content-Type: application/json
+
+{
+  "question": "What happens to light near a black hole?"
+}
+
+### 5. Ask: answer is NOT in the document (grounding test)
+POST http://localhost:3000/ask
+Content-Type: application/json
+
+{
+  "question": "Who won the 2022 FIFA World Cup?"
+}
+
+### 6. Ask with an empty question (guard test)
+POST http://localhost:3000/ask
+Content-Type: application/json
+
+{
+  "question": ""
+}
